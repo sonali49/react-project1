@@ -1,6 +1,7 @@
-console.log('App.js is running!');
+console.log('App.jvvvvvg!');
 
-var template = <div><h1>River of news</h1><span>This is testing again</span></div>;
-var appRoot = document.getElementById('app');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-ReactDOM.render(template, appRoot);
+const template = <p>Hey..finally webpack running again Sonali........with dev-server..yayyy!!!</p>;
+ReactDOM.render(template, document.getElementById('app'));
