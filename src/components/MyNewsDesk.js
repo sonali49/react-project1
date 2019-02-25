@@ -6,7 +6,6 @@ import {parseString} from 'xml2js';
 export default class MyNewsDesk extends React.Component{
     constructor (props){
     super(props);
-    //this.newsLoad = this.newsLoad.bind(this);
     this.state={
         itemList:[]
     }
@@ -14,8 +13,6 @@ export default class MyNewsDesk extends React.Component{
 newsLoad = async () => {
     const listUrl = "https://www.mynewsdesk.com/partner/api/1_0/LY6eZJ5rZDqDuzBQWBHbVA/channel/607/material/list";
     const results = await axios.get(listUrl);
-    //debugger
-    //const resultParser = new XMLParser().parseFromString(results.data);
     const xml = results.data;
     // this.setState({
     //     itemList:xml
@@ -25,19 +22,17 @@ newsLoad = async () => {
         const items = result.items.item;
         const itemList = items.sort((a, b) => 
         new Date(a.published_at[0]) - new Date(b.published_at[0]));
-        //this.setState(() => ({itemList}));
-        //return JSON.stringify(itemList);
          const json = JSON.stringify(itemList);
          localStorage.setItem("itemList",json);
+         
         return json;
 
     });
-
+    
 }
     componentDidMount(){
         try{
-            //debugger;
-            //this.newsLoad();
+            this.newsLoad();
             this.setState(()=>({itemList}));
             const json = localStorage.getItem("itemList");
             const itemList = JSON.parse(json);
