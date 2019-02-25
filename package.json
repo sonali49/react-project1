@@ -1,0 +1,12 @@
+{
+  "name": "mynewsdesk",
+  "version": "1.0.0",
+  "description": "River of News",
+  "main": "index.js",
+  "author": "Sonali Rai",
+  "license": "MIT",
+    "dependencies": {
+    "babel-preset-env": "1.5.2",
+    "babel-preset-react": "6.24.1"
+  }
+}
