@@ -1,7 +1,5 @@
 'use strict';
 
-console.log('App.js is running!');
-
 var template = React.createElement(
   'div',
   null,

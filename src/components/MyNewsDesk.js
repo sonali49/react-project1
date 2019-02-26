@@ -1,80 +1,90 @@
 import React from 'react';
 import Header from './Header';
-import RiverOfNews from './RiverOfNews';
+import UserValidation from './UserValidation';
 import axios from 'axios';
 import {parseString} from 'xml2js';
 export default class MyNewsDesk extends React.Component{
-    constructor (props){
-    super(props);
-    this.state={
-        itemList:[]
-    }
-}
-newsLoad = async () => {
-    const listUrl = "https://www.mynewsdesk.com/partner/api/1_0/LY6eZJ5rZDqDuzBQWBHbVA/channel/607/material/list";
-    const results = await axios.get(listUrl);
-    const xml = results.data;
-    // this.setState({
-    //     itemList:xml
-    //   });
-    const resultParser = new parseString (xml, function (err, result) {
-        //console.log(result);
-        const items = result.items.item;
-        const itemList = items.sort((a, b) => 
-        new Date(a.published_at[0]) - new Date(b.published_at[0]));
-         const json = JSON.stringify(itemList);
-         localStorage.setItem("itemList",json);
-         
-        return json;
+  state={
+    uniqueKey : "LY6eZJ5rZDqDuzBQWBHbVA",
+    channelId:"607",
+    baseApiUrl:"https://www.mynewsdesk.com/partner/api/1_0/",
+    listUrl:"https://www.mynewsdesk.com/partner/api/1_0/LY6eZJ5rZDqDuzBQWBHbVA/channel/607/material/list",
+    itemList:[],
+    error:undefined
+  }
 
-    });
+  handleUserValidation=(uniqueKey,channelId,listUrl)=>{
+    if(!uniqueKey){
+      return "Enter valid unique key.";
+    }
+    else if(!channelId){
+      return "Enter valid channel id.";
+    }
+    this.setState((prevState) => ({
+      uniqueKey: prevState.uniqueKey,
+      channelId: prevState.channelId,
+      listUrl:prevState.listUrl
+    }));
+  }
+
+  newsLoad = async (urlData) => {
+      //const listUrl = `${this.state.baseApiUrl}${this.state.uniqueKey}/channel/${this.state.channelId}/material/list`;
+      const listUrl = urlData;
+      try{
+        const results = await axios.get(listUrl).catch(function(error){if(error.response){
+          console.log(error.response.status)
+          console.log(error.response.data)
+          alert(error.response.data + " - " + error.response.status);
+          
+        }});
+        const xml = results.data;
+        let { data } = await results.data;
+        this.setState({ itemList: data});
+        const resultParser = new parseString (xml, function (err, result) {
+            const items = result.items.item;
+            const itemList = items.sort((a, b) => new Date(a.published_at[0]) - new Date(b.published_at[0]));
+            this.setState((prevState) => ({
+              itemList:itemList
+            }));
+            
+            const json = JSON.stringify(itemList);
+            localStorage.setItem("itemList",json);
+            //return itemList;
+            //return json;
+        }.bind(this));
+      }
+      catch (e){
+        
+        //console.log("Not a valid url");
+      }
+      
+  }
+
+  // componentDidUpdate(prevPops,prevState){
+  // }
+  componentDidMount() {
+    if (!this.state.itemList) {
+        this.newsLoad().then(itemList => this.setState({itemList}))
+                      .catch(err => { console.log("hey error")});
+    }
     
 }
-    componentDidMount(){
-        try{
-            this.newsLoad();
-            this.setState(()=>({itemList}));
-            const json = localStorage.getItem("itemList");
-            const itemList = JSON.parse(json);
-			if (itemList) {
-            this.setState(()=>({itemList}));
-            }
-           
-        }
-        catch(e){}
-        
-    }
-    componentDidUpdate(prevPops,prevState){
-        
-        //debugger;
-        //console.log(prevState);
-        // if(prevState.itemList.length !== this.state.itemList.length){
-        //     const json = JSON.stringify(this.state.itemList);
-        //     localStorage.setItem("itemList",json);
-        // }
-    }
-    componentWillUnmount(){
-        console.log("componentWillUnmount");
-    }
-
+  componentWillUnmount(){
+    console.log("componentWillUnmount");
+  }
+    
     render(){
-        const isItemPresent = this.state.itemList.length;
-        return(
-            <div className="body-conatiner">
-                <Header />
-                <div className="container">
-                {isItemPresent !== 0 ? (
-                    <RiverOfNews itemList={this.state}/>
-                ) : (
-                    <p>No item present</p>
-                )}
-                </div>
-                
-            </div>
-        );
+      return(
+        <div className="body-conatiner">
+          <Header />
+          <div>
+            <UserValidation 
+              handleUserValidation={this.handleUserValidation} 
+              newsLoad={this.newsLoad} 
+              itemList={this.state.itemList}
+            />
+          </div>
+        </div>
+      );
     }
-}
-
-MyNewsDesk.defaultProps={
-    itemList :[]
 }
