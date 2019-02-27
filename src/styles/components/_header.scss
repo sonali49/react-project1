@@ -1,0 +1,18 @@
+.header {
+  height: 70px;
+  display: flex;
+  padding: 30px;
+}
+
+.header_title {
+  font-size: $l-size;
+  margin: 0;
+}
+
+.header__subtitle {
+  //color: $off-white;
+  font-size: $m-size;
+  font-weight: 500;
+  margin: 0;
+}
+

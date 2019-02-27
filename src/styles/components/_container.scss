@@ -1,0 +1,29 @@
+.container {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 $m-size;
+}
+.content-area{
+  display: flex;
+  justify-content: flex-start;
+  padding: 30px;
+
+}
+
+.validation-form{
+  display: flex;
+  justify-content: space-between
+}
+.news-list{
+  display: flex;
+  flex-basis: 50%;
+  justify-content: space-between
+}
+.river-container{
+  display: flex
+}
+
+.news-content{
+  display: flex
+}
+a{color: $link-color}

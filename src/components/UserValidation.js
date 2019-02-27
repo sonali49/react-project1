@@ -25,14 +25,15 @@ export default class UserValidation extends React.Component{
     }
     render(){
       //let isItemPresent = "undefined";
-      if(this.props.itemList){debugger
+      if(this.props.itemList){
         const isItemPresent = this.props.itemList.length;
         console.log("return")
       }
         
         return (
-        <div>
-           {this.state.error && <p className="">{this.state.error}</p>}
+        <div className="river-container">
+          {this.state.error && <p className="">{this.state.error}</p>}
+          <div className="validation-form">
             <form className="" onSubmit={this.handleUserValidation}>
                 <label> Unique_Key
                     <input className="" type="text" name="uniqueKey" />
@@ -43,12 +44,11 @@ export default class UserValidation extends React.Component{
                 </label>
                 <button className="">Submit</button>
             </form>
-            
-                {this.props.itemList && this.props.itemList.length ? 
-                  (<div className="container"><RiverOfNews itemList={this.props.itemList}/></div>) : 
-                  (<p>No item presentddddddd</p>)} 
-                }
-        </div>  
+            </div>
+            {this.props.itemList && this.props.itemList.length ? 
+              (<div className="container news-list"><RiverOfNews itemList={this.props.itemList}/></div>) : 
+              (<p>No items present !!</p>)} 
+          </div>  
         );
     }
 }

@@ -60,8 +60,6 @@ export default class MyNewsDesk extends React.Component{
       
   }
 
-  // componentDidUpdate(prevPops,prevState){
-  // }
   componentDidMount() {
     if (!this.state.itemList) {
         this.newsLoad().then(itemList => this.setState({itemList}))
@@ -69,15 +67,12 @@ export default class MyNewsDesk extends React.Component{
     }
     
 }
-  componentWillUnmount(){
-    console.log("componentWillUnmount");
-  }
-    
+   
     render(){
       return(
         <div className="body-conatiner">
           <Header />
-          <div>
+          <div className="content-area">
             <UserValidation 
               handleUserValidation={this.handleUserValidation} 
               newsLoad={this.newsLoad} 
