@@ -62,7 +62,7 @@ export default class MyNewsDesk extends React.Component{
 
   componentDidMount() {
     if (!this.state.itemList) {
-        this.newsLoad().then(itemList => this.setState({itemList}))
+        this.newsLoad().then(itemList => this.setState({itemList,listUrl}))
                       .catch(err => { console.log("hey error")});
     }
     
@@ -72,11 +72,13 @@ export default class MyNewsDesk extends React.Component{
       return(
         <div className="body-conatiner">
           <Header />
+          {/* unique key equals to{this.props.match.params.uniqueKey} */}
           <div className="content-area">
             <UserValidation 
               handleUserValidation={this.handleUserValidation} 
               newsLoad={this.newsLoad} 
               itemList={this.state.itemList}
+              listUrl = {this.state.listUrl}
             />
           </div>
         </div>

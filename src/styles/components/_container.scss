@@ -12,7 +12,8 @@
 
 .validation-form{
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
+  flex-flow: column
 }
 .news-list{
   display: flex;

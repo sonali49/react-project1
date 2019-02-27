@@ -1,4 +1,5 @@
 const path = require('path');
+console.log(__dirname);
 
 module.exports = {
   entry: ["babel-polyfill",'./src/app.js'],
@@ -24,6 +25,7 @@ module.exports = {
   },
   devtool: 'cheap-module-eval-source-map',
   devServer: {
-    contentBase: path.join(__dirname, 'public')
+    contentBase: path.join(__dirname, 'public'),
+    historyApiFallback: true
   }
 };
