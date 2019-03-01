@@ -3,14 +3,18 @@ import Header from './Header';
 import UserValidation from './UserValidation';
 import axios from 'axios';
 import {parseString} from 'xml2js';
+
+
 export default class MyNewsDesk extends React.Component{
   state={
     uniqueKey : "LY6eZJ5rZDqDuzBQWBHbVA",
     channelId:"607",
     baseApiUrl:"https://www.mynewsdesk.com/partner/api/1_0/",
-    listUrl:"https://www.mynewsdesk.com/partner/api/1_0/LY6eZJ5rZDqDuzBQWBHbVA/channel/607/material/list",
+    //listUrl:"https://www.mynewsdesk.com/partner/api/1_0/LY6eZJ5rZDqDuzBQWBHbVA/channel/607/material/list",
     itemList:[],
-    error:undefined
+    error:undefined,
+    selectedOption:null
+    
   }
 
   handleUserValidation=(uniqueKey,channelId,listUrl)=>{
@@ -35,7 +39,6 @@ export default class MyNewsDesk extends React.Component{
           console.log(error.response.status)
           console.log(error.response.data)
           alert(error.response.data + " - " + error.response.status);
-          
         }});
         const xml = results.data;
         let { data } = await results.data;
