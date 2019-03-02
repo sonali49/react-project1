@@ -6,7 +6,7 @@ const AppRouter =() => (
     <BrowserRouter>
     <div>
         <div>
-            <Route path="/uniqueKey/:uniqueKey/channelId/:channelId" component={MyNewsDesk} isExact={true} />
+            <Route path="/" component={MyNewsDesk} isExact={true} />
         </div>
     </div>
     </BrowserRouter>
