@@ -1,7 +1,6 @@
 import React from 'react';
 const FormFields = (props) => {
   const selectedOption = props.selectedOption;
-  //  debugger
   return(
     <div>
     <label> Unique_Key

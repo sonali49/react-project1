@@ -24,8 +24,9 @@ export default class UserValidation extends React.Component{
       e.target.elements.uniqueKey.value=''; 
       e.target.elements.channelId.value=''; 
       this.props.newsLoad(urlData);
+      const location = window.location.origin;
       this.setState(() => ({
-        listUrl:urlData
+        listUrl:`${location}uniqueKey/:${uniqueKey}channelId/:${channelId}`
       }));
     }
       

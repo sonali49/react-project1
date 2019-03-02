@@ -68,10 +68,10 @@ export default class MyNewsDesk extends React.Component{
         this.newsLoad().then(itemList => this.setState({itemList,listUrl}))
                       .catch(err => { console.log("hey error")});
     }
-    
-}
+  }
    
     render(){
+    console.log(this.props.match.params);
       return(
         <div className="body-conatiner">
           <Header />
