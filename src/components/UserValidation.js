@@ -42,11 +42,11 @@ export default class UserValidation extends React.Component{
         <div className="validation-form">
           {this.state.error && <p className="">{this.state.error}</p>}
           <SelectUser handleUserValidation={this.handleUserValidation}/>
-          <IframeHandler listUrl={this.state.listUrl} />
+          {this.state.listUrl && <IframeHandler listUrl={this.state.listUrl} />}
         </div>
         {this.props.itemList && this.props.itemList.length ? 
           (<div className="container news-list"><RiverOfNews itemList={this.props.itemList}/></div>) : 
-          (<p>No items present !!</p>)
+          (<p className="">No items present !!</p>)
         } 
       </div>  
       );
