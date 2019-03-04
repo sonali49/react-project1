@@ -20,9 +20,16 @@
 }
 .river-container{
   display: flex
+  
 }
 
 .news-content{
   display: flex
 }
 a{color: $link-color}
+
+@media (min-width: $desktop-breakpoint) {
+  .river-container{
+    // display: block
+  }
+}

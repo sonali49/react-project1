@@ -26,7 +26,7 @@ export default class UserValidation extends React.Component{
       this.props.newsLoad(urlData);
       const location = window.location.origin;
       this.setState(() => ({
-        listUrl:`${location}uniqueKey/:${uniqueKey}channelId/:${channelId}`
+        listUrl:`${location}/newsList?uniqueKey=${uniqueKey}&channelId=${channelId}`
       }));
     }
       
@@ -45,7 +45,7 @@ export default class UserValidation extends React.Component{
           {this.state.listUrl && <IframeHandler listUrl={this.state.listUrl} />}
         </div>
         {this.props.itemList && this.props.itemList.length ? 
-          (<div className="container news-list"><RiverOfNews itemList={this.props.itemList}/></div>) : 
+          (<div className="container news-listtttt"><RiverOfNews itemList={this.props.itemList}/></div>) : 
           (<p className="">No items present !!</p>)
         } 
       </div>  

@@ -1,18 +1,17 @@
 import React from 'react';
 import ListPublishedDate from './ListPublishedDate';
-
-import { render } from 'react-dom';
-
+import FontSizeChangerLabel from './FontSizeChangerLabel';
 const RiverOfNews = (props) => {
 	const items = props.itemList;
-
 	return (
 		<div>
-			{items && <h3 className="widget__message">Find the river of news</h3>}
+			<FontSizeChangerLabel />
+			{items && <h3 className="widget__message">News Here</h3> }
 			{
+				
 				items.map(item =>
 				(
-				<div key={item.id}>
+				<div key={item.id} className="news-items">
 					<h2><a href={item.url} target="_blank">{item.header}</a></h2>
 					<h3>Press Room: {item.pressroom_name}</h3>
 					<ListPublishedDate item={item} />

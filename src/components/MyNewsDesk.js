@@ -3,6 +3,7 @@ import Header from './Header';
 import UserValidation from './UserValidation';
 import axios from 'axios';
 import {parseString} from 'xml2js';
+import queryString from 'query-string';
 
 
 export default class MyNewsDesk extends React.Component{
@@ -68,14 +69,14 @@ export default class MyNewsDesk extends React.Component{
         this.newsLoad().then(itemList => this.setState({itemList,listUrl}))
                       .catch(err => { console.log("hey error")});
     }
+    
   }
    
     render(){
-    console.log(this.props.match.params);
+    //console.log(this.props.location);
       return(
         <div className="body-conatiner">
           <Header />
-          {/* unique key equals to{this.props.match.params.uniqueKey} */}
           <div className="content-area">
             <UserValidation 
               handleUserValidation={this.handleUserValidation} 
