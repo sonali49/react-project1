@@ -3,7 +3,7 @@ import Header from './Header';
 import UserValidation from './UserValidation';
 import axios from 'axios';
 import {parseString} from 'xml2js';
-import queryString from 'query-string';
+import IframeLoadingData from './IframeLoadingData';
 
 
 export default class MyNewsDesk extends React.Component{
@@ -65,6 +65,7 @@ export default class MyNewsDesk extends React.Component{
   }
 
   componentDidMount() {
+    
     if (!this.state.itemList) {
         this.newsLoad().then(itemList => this.setState({itemList,listUrl}))
                       .catch(err => { console.log("hey error")});

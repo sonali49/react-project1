@@ -20,5 +20,8 @@ In the created application webpack is used for module bundler and Babel is used 
 
 5. On selecting either of the username, respective unique key and channel Id will be populated in the textbox which are non editable.
 6. After the data population, click on submit button will show the result of list items present.
-
+7. Also the Iframe code that needs to be embedded in any HTML is shown in the left side below Submit button.
+8. I have added a "test.html" which can be used to integrate the iframe code and verify if content gets loaded.
+9. When the river of news appears, we can see 2 buttons at the top to increase/decrease the font size till 5 levels. (Images are not getting resize)
+10. Tried to maintain the overflow with respect to resizing the screen. (Still utilization of SCSS feature is not done as expected)
 

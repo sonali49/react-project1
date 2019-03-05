@@ -16,7 +16,7 @@ const RiverOfNews = (props) => {
 					<h3>Press Room: {item.pressroom_name}</h3>
 					<ListPublishedDate item={item} />
 					<div className="news-content">
-						<img src={item.image_thumbnail_small} />
+						<img align="left" src={item.image_thumbnail_small} />
 						<p>{item.summary}</p>
 					</div>
 				</div>

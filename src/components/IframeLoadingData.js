@@ -39,8 +39,6 @@ export default class IframeLoadingData extends React.Component{
           
           const json = JSON.stringify(itemList);
           localStorage.setItem("itemList",json);
-          //return itemList;
-          //return json;
       }.bind(this));
     }
     catch (e){

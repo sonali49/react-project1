@@ -1,5 +1,5 @@
 .container {
-  max-width: 60rem;
+  
   margin: 0 auto;
   padding: 0 $m-size;
 }
@@ -22,14 +22,7 @@
   display: flex
   
 }
-
-.news-content{
-  display: flex
-}
+.news-items{display: table}
+.news-content img{padding-right: 15px}
+.news-content p{margin: 0 5px 0 10px}
 a{color: $link-color}
-
-@media (min-width: $desktop-breakpoint) {
-  .river-container{
-    // display: block
-  }
-}
