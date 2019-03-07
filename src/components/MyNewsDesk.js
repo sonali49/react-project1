@@ -46,7 +46,6 @@ export default class MyNewsDesk extends React.Component{
         this.setState((prevState) => ({
           itemList:itemList
         }));
-        
         const json = JSON.stringify(itemList);
         localStorage.setItem("itemList",json);
       }.bind(this));
@@ -65,19 +64,19 @@ export default class MyNewsDesk extends React.Component{
     
   }
    
-    render(){
-      return(
-        <div className="body-conatiner">
-          <Header />
-          <div className="content-area">
-            <UserValidation 
-              handleUserValidation={this.handleUserValidation} 
-              newsLoad={this.newsLoad} 
-              itemList={this.state.itemList}
-              listUrl = {this.state.listUrl}
-            />
-          </div>
+  render(){
+    return(
+      <div className="body-conatiner">
+        <Header />
+        <div className="content-area">
+          <UserValidation 
+            handleUserValidation={this.handleUserValidation} 
+            newsLoad={this.newsLoad} 
+            itemList={this.state.itemList}
+            listUrl = {this.state.listUrl}
+          />
         </div>
-      );
-    }
+      </div>
+    );
+  }
 }

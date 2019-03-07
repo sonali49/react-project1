@@ -7,8 +7,8 @@ const AppRouter =() => (
 	<BrowserRouter>
 		<div>
 			<div>
-				<Route path="/riverOfNews" component={MyNewsDesk} isExact={true} />
-				<Route path="/newsList" component={IframeLoadingData} isExact={true} />
+				<Route path="/riverOfNews" component={MyNewsDesk} exact={true} />
+				<Route path="/newsList" component={IframeLoadingData}/>
 			</div>
 		</div>
 	</BrowserRouter>

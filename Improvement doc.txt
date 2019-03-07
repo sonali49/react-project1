@@ -1,0 +1,17 @@
+Improvement Areas:
+
+1. Some more validations could have been provided in the application, as "Submit" could have made disabled of no username is selected. 
+2. On selection of a username, there could have been the ability to edit it, which is currently disabled.
+3. The default "No items present" message is shown on application load, which could have not shown until some user data is passed in service.
+4. Even if the message appears, it should be aligned to the message box,.
+5. After the message - "Copy the code and paste it in your page -", URL is shown which is confusing for user as they are suppose to copy only the below Iframe code and paste in their code base.(this has been resolved locally)
+6. The error handling could have been better as, when there is no item present for a particular user/channel combination, a static alert message is shown which could have been replaced with a generic message, by verifying the count value from response if the count is "0".
+7. In terms of responsiveness, the left and right side blocks would have been rendered one below another if using Mobile device and portrait screen in iPad.
+8. In the 2 components file "MyNewsDesk.js" and "IframeLoadingData.js", there is a method "newsLoad" written in both the files, which could have been used from a single file itself to make it more modular and reusable. 
+- This was causing the system break if I was trying to use it from creating a new component or fetching it from either of existing file. After some research I found as I am using 2 different routing path, may be integration of redux is needed to achieve this.
+
+9. An exception handling catch scenario is missed out in "IframeLoadingData.js" , which will hold the similar kind of message considering the count of items present in a channel.
+10. Iframe height/width could have been set dynamically instead of providing hard coded value in "IframeHandler.js", by either setting.
+11. An additional "Link" module is imported in "AppRouter.js", which is not used anywhere and could have been removed from importing.(removed locally)
+12. There is an additional improvement I was thinking around to provide a counter(time-ticker) which will call the same service after every 1-2 minutes to fetch the real time data and update the items.
+13. SCSS has not been used as expected
