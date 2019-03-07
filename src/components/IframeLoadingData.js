@@ -3,7 +3,6 @@ import queryString from 'query-string';
 import RiverOfNews from './RiverOfNews';
 import axios from 'axios';
 import {parseString} from 'xml2js';
-import Iframe from 'react-iframe';
 export default class IframeLoadingData extends React.Component{
   
   state={
