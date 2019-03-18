@@ -1,45 +1,27 @@
-# river-of-news-sonali
+Instruction Document
 
-River of news assignment for Sonali Rai
+Below are the steps needed to run the application in any system:
 
-# River of News Project
+System should have nodeJs and Yarn installed from respective path as mentioned:
 
-You are working as a developer at the consultancy company Rails Bikers inc. Rails Bikers inc. are an elite Ruby on Rails company that only creates awesome products for its partners. One of your partners is Mynewsdesk.
+https://nodejs.org
+https://yarnpkg.com
+ Or 
+Yarn could also be installed using npm with command - npm install -g yarn
 
-Mynewsdesk have asked you to develop a new feature called River of News. River of News is a product that will work on top of Mynewsdesk’s existing partner API and make it easier for clients to integrate a channel stream into its website.
+In the created application webpack is used for module bundler and Babel is used for javascript complier. There are also other dependencies been used to run the application, which can be found in package.json.
 
-Technically speaking, clients will include an iframe on their website that renders a group of news items read from your application that read news items from the Mynewsdesk API. Simple right?
+1. Pull the application from git hub in your system
+2. Command - "npm install" could be run to fetch the dependencies in your local system
+3. Run the application in command prompt using - "yarn run dev-server", this will open a local server in your browser and running application could be seen at path - http://localhost:8080/riverOfNews
+4. Currently the user validation has been done only for 2 users and their data is stored locally within an object. So, the main page will show a dropdown containing 2 users as - 
+ - sonali491@gmail.com
+ - random@mynewsdesk.com
 
-There are some more requirements though...
+5. On selecting either of the username, respective unique key and channel Id will be populated in the textbox which are non editable.
+6. After the data population, click on submit button will show the result of list items present.
+7. Also the Iframe code that needs to be embedded in any HTML is shown in the left side below Submit button.
+8. I have added a "test.html" which can be used to integrate the iframe code and verify if content gets loaded.
+9. When the river of news appears, we can see 2 buttons at the top to increase/decrease the font size till 5 levels. (Images are not getting resize)
+10. Tried to maintain the overflow with respect to resizing the screen. (Still utilization of SCSS feature is not done as expected)
 
-Push the code to this git repo:
-
-- https://github.com/mynewsdesk/river-of-news-sonali
-- Push commits continuesly as you work, so we dont get everything in 1 commit at the end
-- JavaScript/React application
-  - Use best practices
-- Store information for each “River of news” account
-  - Name
-  - Url to api end-point
-
-## Design
-
-- News item should be shown in published date order
-- Open link to news item in full window
-
-## Nice to have - let us know what features you decided to implement.
-
-- Realtime update (people will use “River of news” on a separate large screen tv in e.g. lobbys)
-- Responsive design
-- Simple design customizations for the customer to make
-  - Font (name, size, color)
-  - Box-color color
-- Impress Mynewsdesk with some extra feature!
-
-## Docs
-
-http://www.mynewsdesk.com/docs/partner_kanaler_1_0
-
-## Test channel
-
-http://www.mynewsdesk.com/partner/api/1_0/LY6eZJ5rZDqDuzBQWBHbVA/channel/607/material/list
